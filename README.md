@@ -9,14 +9,14 @@ Snorby is build on:
     daq-2.0.6-1
     snort-2.9.11-1 using community rules.  
 
-This container is built that any extra parameters provided to `docker run` will be passed directly to rails server command. For example, if you run `docker run [run options] schachr/snorby -e production` you pass `-e production` to rails server daemon.
+This container is built that any extra parameters provided to `docker run` will be passed directly to rails server command. For example, if you run `docker run [run options] schachr/openshift-snorby -e production` you pass `-e production` to rails server daemon.
 
 ### Openshift
 This container is a test for openshift deployments.
 
 ### Automatic Build details
 This image has a repository link to the underlying base image `centos`. Whenever this receives an update this container will automatically build itself again.
-There is an `automatic build` dependency to the github repository https://github.com/schachr/docker-snorby as well.
+There is an `automatic build` dependency to the github repository https://github.com/schachr/openshift-snorby as well.
 All you need to do is to pull it, remove the container (`docker rm`) if neccessary and restart it (`docker create/run`).
 
 ### Database deployment 
@@ -43,7 +43,7 @@ If you mount your config to different location, simply edit it.
     --env="DB_ADDRESS=database_ip" \
     --env="DB_USER=snorbyuser" \
     --env="DB_PASS=password" \
-    schachr/snorby
+    schachr/openshift-snorby
 
 
 ### Mount custom config , override some options
@@ -58,7 +58,7 @@ If you mount your config to different location, simply edit it.
     --env="OINKCODE=my_oinkcode" \
     -v /my-snorby-config.yml:/usr/local/src/snorby/config/snorby_config.yml \
     -v /my-email-settings.rb:/usr/local/src/snorby/config/initializers/mail_config.rb \
-    schachr/snorby \
+    schachr/openshift-snorby \
     -e development -p 80
 
 ### Rails Server CMD params
