@@ -1,3 +1,6 @@
+### Openshift
+This container is a test for openshift deployments.
+
 ### Snorby Docker Image
 
 [Docker Image](https://hub.docker.com/r/schachr/openshift-snorby/) with Snorby using latest CentOS-7, Ruby on Rails, Daq and Snort.
@@ -10,9 +13,6 @@ Snorby is build on:
     snort-2.9.11-1 using community rules.  
 
 This container is built that any extra parameters provided to `docker run` will be passed directly to rails server command. For example, if you run `docker run [run options] schachr/openshift-snorby -e production` you pass `-e production` to rails server daemon.
-
-### Openshift
-This container is a test for openshift deployments.
 
 ### Automatic Build details
 This image has a repository link to the underlying base image `centos`. Whenever this receives an update this container will automatically build itself again.
