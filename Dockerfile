@@ -30,9 +30,6 @@ RUN \
     git clone git://github.com/Snorby/snorby.git /usr/local/src/snorby && \
     sed -i "s/gem 'byebug'/gem 'pry-byebug', platform: [:ruby_20]/g" /usr/local/src/snorby/Gemfile && \
     cd /usr/local/src/snorby && \
-    bundle install ; \
-    bundle update do_mysql ; \
-    bundle update dm-mysql-adapter ; \
     # Openshift compatibility
     find /usr/local/src/snorby -type d -exec chmod g+rxw {} \; ; \
     find /usr/local/src/snorby -type f -exec chmod g+rw {} \; 
