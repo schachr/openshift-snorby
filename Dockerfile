@@ -17,7 +17,7 @@ RUN \
     gem update --system && \
     # Install DAQ and Snort
     yum install -y https://snort.org/downloads/snort/daq-2.0.6-1.centos7.x86_64.rpm && \
-    yum install -y https://snort.org/downloads/snort/snort-2.9.11-1.centos7.x86_64.rpm && \
+    yum install -y https://snort.org/downloads/snort/snort-2.9.11.1-1.centos7.x86_64.rpm && \
     # Install Community rules
     wget -O /tmp/community-rules.tar.gz https://www.snort.org/downloads/community/community-rules.tar.gz && \
     mkdir -p /etc/snort/rules && \
@@ -29,7 +29,7 @@ RUN \
     export PATH=$PATH:/usr/local/rvm/rubies/ruby-1.9.3-p551/bin && \
     git clone git://github.com/Snorby/snorby.git /usr/local/src/snorby && \
     sed -i "s/gem 'byebug'/gem 'pry-byebug', platform: [:ruby_20]/g" /usr/local/src/snorby/Gemfile && \
-    cd /usr/local/src/snorby && \
+    cd /usr/local/src/snorby && bundle install ; bundle update do_mysql ; bundle update dm-mysql-adapter ; \
     # Openshift compatibility
     find /usr/local/src/snorby -type d -exec chmod g+rxw {} \; ; \
     find /usr/local/src/snorby -type f -exec chmod g+rw {} \; 
